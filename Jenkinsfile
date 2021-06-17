@@ -1,8 +1,5 @@
 node{
-  def commit_id
-  
-  tools{nodejs "node INTVAL.js -d intval_input.json"}
-  
+  def commit_id  
   stage('NewMan test'){
     checkout scm
     sh "git rev-parse --short HEAD > .git/commit-id"
@@ -12,8 +9,7 @@ node{
    
       sh 'npm install'
       sh 'npm run api-test-lab'
-      
-  
+
   }
   stage('docker build/push'){
     docker.withRegistry('https://registry.hub.docker.com','dockerhub'){
