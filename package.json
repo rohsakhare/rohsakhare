@@ -6,7 +6,7 @@
       "test":"test"
    },
   "scripts":{
-      "api-test-lab":"newman run test/InterfaceValidator_report.postman_collection.json node test/INTVAL.js -d test/intval_input.json  -e test/intval_environment.json"
+      "api-test-lab":"newman run test/InterfaceValidator_report.postman_collection.json -d test/intval_input.json  -e test/intval_environment.json"
   },
   "author":"Rohan Sakhare",
   "dependencies":{
