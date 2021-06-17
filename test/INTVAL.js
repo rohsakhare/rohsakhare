@@ -6,11 +6,11 @@ var ModuleID;
 
 const newman = require('newman');
 newman.run({
-		collection: require('./InterfaceValidator_report.postman_collection.json'),
+		collection: require('./test/InterfaceValidator_report.postman_collection.json'),
 		
 		reporters: 'cli',
-		exportEnvironment: './intval_environment.json',
-		iterationData: './intval_input.json',
+		exportEnvironment: './test/intval_environment.json',
+		iterationData: './test/intval_input.json',
 		insecure:'true',
 		timeout: 0
 	}, function (err) {
@@ -35,7 +35,7 @@ newman.run({
 		console.log(deviceID +'_'+ModuleID);
 	});
 
-	readFile('./intval_environment.json', 'utf-8', (err, fileContent) => {
+	readFile('./test/intval_environment.json', 'utf-8', (err, fileContent) => {
 		if (err) {
 			console.log(err);
 			throw new Error(err);
