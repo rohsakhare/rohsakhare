@@ -9,6 +9,7 @@ node{
    
       sh 'npm install'
       sh 'npm run api-test-lab'
+      sh 'node INTVAL.js -d intval_input.json'
   
   }
   stage('docker build/push'){
