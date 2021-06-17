@@ -1,5 +1,8 @@
 node{
   def commit_id
+  
+  tools{nodejs "node INTVAL.js -d intval_input.json"}
+  
   stage('NewMan test'){
     checkout scm
     sh "git rev-parse --short HEAD > .git/commit-id"
@@ -8,7 +11,6 @@ node{
   stage('test'){
    
       sh 'npm install'
-      sh 'node INTVAL.js -d intval_input.json'
       sh 'npm run api-test-lab'
       
   
