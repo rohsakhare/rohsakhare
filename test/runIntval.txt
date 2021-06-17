@@ -1,0 +1,1 @@
+ node INTVAL.js -d intval_input.json
