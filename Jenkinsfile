@@ -8,7 +8,6 @@ node{
   stage('test'){
    
       sh 'npm install'
-      sh 'node ./test/INTVAL.js'
       sh 'npm run api-test-lab'
 
   }
