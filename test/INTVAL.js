@@ -58,7 +58,7 @@ newman.run({
 		
 		if(validationReport.length > 0) {
 			const csv = json2csv(validationReport, Object.keys(validationReport[0]));			
-			writeFile('./'+deviceID+'_'+ModuleID+'_INTVAL_REPORT.csv', csv, (err) => {
+			writeFile('./test/'+deviceID+'_'+ModuleID+'_INTVAL_REPORT.csv', csv, (err) => {
 				if(err) {
 					console.log(err);
 					throw new Error(err);
@@ -69,7 +69,7 @@ newman.run({
 
 		if(validationErrorResults.length > 0) {
 			const csv = json2csv(validationErrorResults, Object.keys(validationErrorResults[0]));			
-			writeFile('./'+deviceID+'_'+ModuleID+'_INTVAL_ERROR_REPORT.csv', csv, (err) => {
+			writeFile('./test/'+deviceID+'_'+ModuleID+'_INTVAL_ERROR_REPORT.csv', csv, (err) => {
 				if(err) {
 					console.log(err);
 					throw new Error(err);
