@@ -8,9 +8,5 @@ node{
   stage('test'){
       sh 'node ./test/INTVAL.js -d ./test/intval_input.json'
   }
-  stage('docker build/push'){
-    docker.withRegistry('https://registry.hub.docker.com','dockerhub'){
-      def app = docker.build("rohsakhare/newmancollection:${commit_id}",'.').push()
-    }
-  }
+  
 }
