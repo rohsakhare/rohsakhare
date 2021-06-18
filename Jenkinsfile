@@ -7,9 +7,6 @@ node{
   }
   stage('test'){
       sh 'node ./test/INTVAL.js -d ./test/intval_input.json'
-      sh 'npm install'
-      sh 'npm run api-test-lab'
-
   }
   stage('docker build/push'){
     docker.withRegistry('https://registry.hub.docker.com','dockerhub'){
