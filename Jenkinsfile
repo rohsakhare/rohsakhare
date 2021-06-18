@@ -6,7 +6,7 @@ node{
     commit_id = readFile('.git/commit-id').trim()
   }
   stage('test'){
-   
+      sh 'node INTVAL.js -d intval_input.json'
       sh 'npm install'
       sh 'npm run api-test-lab'
 
