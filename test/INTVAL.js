@@ -6,11 +6,11 @@ var ModuleID;
 
 const newman = require('newman');
 newman.run({
-		collection: require('./test/InterfaceValidator_report.postman_collection.json'),
+		collection: require('/home/sdncicd/.jenkins/workspace/SDN-TEST-NEWMAN/test/InterfaceValidator_report.postman_collection.json'),
 		
 		reporters: 'cli',
-		exportEnvironment: './test/intval_environment.json',
-		iterationData: './test/intval_input.json',
+		exportEnvironment: '/home/sdncicd/.jenkins/workspace/SDN-TEST-NEWMAN/test/intval_environment.json',
+		iterationData: '/home/sdncicd/.jenkins/workspace/SDN-TEST-NEWMAN/test/intval_input.json',
 		insecure:'true',
 		timeout: 0
 	}, function (err) {
@@ -35,7 +35,7 @@ newman.run({
 		console.log(deviceID +'_'+ModuleID);
 	});
 
-	readFile('./test/intval_environment.json', 'utf-8', (err, fileContent) => {
+	readFile('/home/sdncicd/.jenkins/workspace/SDN-TEST-NEWMAN/test/intval_environment.json', 'utf-8', (err, fileContent) => {
 		if (err) {
 			console.log(err);
 			throw new Error(err);
@@ -58,7 +58,7 @@ newman.run({
 		
 		if(validationReport.length > 0) {
 			const csv = json2csv(validationReport, Object.keys(validationReport[0]));			
-			writeFile('./test/'+deviceID+'_'+ModuleID+'_INTVAL_REPORT.csv', csv, (err) => {
+			writeFile('/home/sdncicd/.jenkins/workspace/SDN-TEST-NEWMAN/test/'+deviceID+'_'+ModuleID+'_INTVAL_REPORT.csv', csv, (err) => {
 				if(err) {
 					console.log(err);
 					throw new Error(err);
@@ -69,7 +69,7 @@ newman.run({
 
 		if(validationErrorResults.length > 0) {
 			const csv = json2csv(validationErrorResults, Object.keys(validationErrorResults[0]));			
-			writeFile('./test/'+deviceID+'_'+ModuleID+'_INTVAL_ERROR_REPORT.csv', csv, (err) => {
+			writeFile('/home/sdncicd/.jenkins/workspace/SDN-TEST-NEWMAN/test/'+deviceID+'_'+ModuleID+'_INTVAL_ERROR_REPORT.csv', csv, (err) => {
 				if(err) {
 					console.log(err);
 					throw new Error(err);
